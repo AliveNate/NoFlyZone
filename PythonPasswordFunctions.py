@@ -25,13 +25,10 @@ def removeLinesWithNumbers():
             break
         # If number is found break, may be int or str. Or else add line to new array
         for char in (fileContents[line]):
-            if char.isdigit():
-                break
-            elif any(char.isdigit() for char in fileContents[line]):
+            if any(char.isdigit() for char in fileContents[line]):
                 break
             else:
                 cleanArray.append(fileContents[line])
-                print(fileContents[line])
                 break
 
     # Create new file, and allow write to file
@@ -50,5 +47,7 @@ if __name__ == '__main__':
 
     # -----------------------------------
     # Call Functions
-    removeLinesWithNumbers()
+    cleanArray = removeLinesWithNumbers()
+    for i in range(len(cleanArray)):
+        print(cleanArray[i])
     # -----------------------------------
