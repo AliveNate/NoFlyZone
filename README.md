@@ -14,11 +14,13 @@ Switch to a main branch
 
 Pull from main branch
 > git checkout main
+> 
 > git pull
   
   
 Merge main into natesbranch
 > git checkout natesbranch
+> 
 > git merge main
   
   
