@@ -1,4 +1,38 @@
 
+"""
+README
+
+-When you install python 
+-We downloaded from python.org
+-Double-click the install executable, and when the first window pops up,
+    be sure to check the "Add Python 3.10 to PATH"
+-Then click Install
+    (You may need to uninstall python, and then reinstall it which can be done from the executable downloaded from Python.org
+-After you have installed, and you have your python script done: example 'sarcasm.py'
+-Open CMD
+-Move to the script location:
+-CMD> pip3 install pyinstaller
+-CMD> pyinstaller --onefile Sarcasm.py
+-You may get a message that says:
+-----"
+-----Installing collected packages: pyinstaller
+-----WARNING: The scripts pyi-archive_viewer.exe, pyi-bindepend.exe, pyi-grab_version.exe, pyi-makespec.exe, pyi-set_version.exe 
+-----and pyinstaller.exe are installed in:
+-----'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' 
+-----which is not on PATH.
+-----Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+-----"
+-On our machine, we had to copy the script that we were making executable to:
+'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts'
+-Then move CMD to that same location
+-CMD> cd 'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts'
+-Then make that target py script an executable
+-CMD> pyinstaller --onefile Sarcasm.py
+-If complete, 'sarcasm.py' will still be there but there will be a directory in that location also named 'dist'
+-Move into 'dist'. That is where the 'Sarcasm.exe' should be
+"""
+
+
 from tkinter import *
 root = Tk()
 root.geometry("650x250")
@@ -40,31 +74,3 @@ sarcasticButton1.grid(row=3, column=0, columnspan=3)
 # Create an event loop. Keeps GUI in an everlasting loop, so it keeps functioning until user quits.
 root.mainloop()
 
-"""
--When you install python 
--We downloaded from python.org
--Double-click the install executable, and when the first window pops up,
-    be sure to check the "Add Python 3.10 to PATH"
--Then click Install
-    (You may need to uninstall python, and then reinstall it which can be done from the executable downloaded from Python.org
--After you have installed, and you have your python script done: example 'sarcasm.py'
--Open CMD
--Move to the script location:
--CMD> pip3 install pyinstaller
--CMD> pyinstaller --onefile Sarcasm.py
--You may get a message that says:
------Installing collected packages: pyinstaller
------WARNING: The scripts pyi-archive_viewer.exe, pyi-bindepend.exe, pyi-grab_version.exe, pyi-makespec.exe, pyi-set_version.exe 
------and pyinstaller.exe are installed in:
------'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' 
------which is not on PATH.
------Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
--On our machine, we had to copy the script that we were making executable to:
-'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts'
--Then move CMD to that same location
--CMD> cd 'C:\Users\User\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts'
--Then make that target py script an executable
--CMD> pyinstaller --onefile Sarcasm.py
--If complete, 'sarcasm.py' will still be there but there will be a directory in that location also named 'dist'
--Move into 'dist'
-"""
