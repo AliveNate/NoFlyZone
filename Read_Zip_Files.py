@@ -15,21 +15,43 @@ from xml.etree.ElementTree import tostring
 # xml document to enable the
 # parsing process
 tree = ET.parse('D:\\Programming\\PythonProjects\\Battlescribe Replacement\\NoFlyZone\\Data\\Unzipped_Data\\Aeldari - Craftworlds.cat')
-#element = ET.xml(tree)
-#ET.indent(element)
-#print(ET.tostring(element, encoding='unicode'))
+#Element tree represents the while XML doc
+#Element represents a single node on the tree per https://docs.python.org/3/library/xml.etree.elementtree.html
+
  
 # getting the parent tag of
 # the xml document
 root = tree.getroot()
  
 # printing the root (parent) tag
-# of the xml document, along with
-# its memory location
-
+# of the xml document
 p = tostring(root)
 print("This is the tree:")
-print(p)
+#print(p)
+
+
+#for thing in root.findall('.//entryLink'):
+#	print(thing.tag, thing.attrib)
+
+#print('---------------------------------------------------')
+#print('---------------------------------------------------')
+#print('---------------------------------------------------')
+#print('---------------------------------------------------')
+#print('---------------------------------------------------')
+
+#for thing in root.iter('entryLinks'):
+#	print(thing.tag, thing.attrib)
+	#for thing2 in thing.findall('entryLink'):
+	#	print(thing2.tag, thing2.attrib)
+
+for thing in root:
+	print(thing.tag, thing.attrib)
+	for thing2 in thing:
+		print(thing2.tag, thing2.attrib)
+
+
+#for thing in root.findall('Wave Serpent'):
+#	print(thing.tag, thing.attrib)
 #print('This is the root:')
 #print(root)
  
