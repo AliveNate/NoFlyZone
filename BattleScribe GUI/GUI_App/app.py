@@ -59,7 +59,7 @@ def open_file():
 
 # Browse button
 browse_text = tk.StringVar()
-browse_btn = tk.Button(root, textvariable=browse_text, command=lambda:open_file(), font="Raleway", bg="dark blue", fg="white", height=2, width=15)
+browse_btn = tk.Button(root, textvariable=browse_text, command=lambda: open_file(), font="Raleway", bg="dark blue", fg="white", height=2, width=15)
 browse_text.set("Browse")
 browse_btn.grid(column=1, row=2)
 
