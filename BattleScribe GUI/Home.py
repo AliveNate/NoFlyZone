@@ -29,16 +29,7 @@ root.iconphoto(False, tk.PhotoImage(file="Images\\battlescribeLogo.png"))
 root.rowconfigure(0, weight=2)
 root.columnconfigure(0, weight=1)
 
-
-# Simple function just as placeholder currently.
-def button_clear():
-    # Creates entry box just to have code in here. Not good for this function.
-    e = Entry(root, width=35, borderwidth=5)
-    e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-    # Clear the text from the box
-    e.delete(0, END)
-
-
+# Grab images from a local directory (next to this .py file)
 imgArrow = resizeButtonImage("Images\\arrow.png")
 imgCloud = resizeButtonImage("Images\\cloud.png")
 imgComputer = resizeButtonImage("Images\\computer.png")
@@ -55,25 +46,25 @@ imgUpload = resizeButtonImage("Images\\upload.png")
 imgSound = resizeButtonImage("Images\\sound.png")
 
 
-
 # Use  lambda to pass a var/value to a button function (command=lambda: button_click(1)))
-button_NoFlyZone            = Button(root, text="NoFlyZone.com",  bg="#112637", fg="White", padx=10, pady=10, command=button_clear)
-button_CreateNewRoster      = Button(root, image=imgKeyboard, bg="#112637", fg="White", padx=12, pady=10, command=button_clear)
-button_OpenExistingRoster   = Button(root, image=imgArrow, bg="#112637", fg="White", padx=12, pady=10, command=button_clear)
-button_OpenRosterToView     = Button(root, image=imgDownload, bg="#112637", fg="White", padx=12, pady=10, command=button_clear)
-button_SaveTheRoster        = Button(root, image=imgUpload, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_SaveTheRosterAs      = Button(root, image=imgSave, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_ViewTheRoster        = Button(root, image=imgComputer, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_ShareTheRoster       = Button(root, image=imgCloud, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_PrintTheRoster       = Button(root, image=imgLock, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_ManageData           = Button(root, image=imgComputerGear, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_SupportBattleScribe  = Button(root, image=imgShieldCheck, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_DiceTool             = Button(root, image=imgGear, bg="#112637", fg="White", padx=11, pady=10, command=button_clear)
-button_Updates              = Button(root, image=imgSound, bg="#112637", fg="White", padx=10, pady=10, command=button_clear)
-button_ReportABug           = Button(root, image=imgMessage, bg="#112637", fg="White", padx=10, pady=10, command=button_clear)
+button_NoFlyZone            = Button(root, text="NoFlyZone.com",  bg="#112637", fg="White", padx=10, pady=10, command=lambda: button_clear(root))
+button_CreateNewRoster      = Button(root, image=imgKeyboard, bg="#112637", fg="White", padx=12, pady=10, command=lambda: button_clear(root))
+button_OpenExistingRoster   = Button(root, image=imgArrow, bg="#112637", fg="White", padx=12, pady=10, command=lambda: button_clear(root))
+button_OpenRosterToView     = Button(root, image=imgDownload, bg="#112637", fg="White", padx=12, pady=10, command=lambda: button_clear(root))
+button_SaveTheRoster        = Button(root, image=imgUpload, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_SaveTheRosterAs      = Button(root, image=imgSave, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_ViewTheRoster        = Button(root, image=imgComputer, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_ShareTheRoster       = Button(root, image=imgCloud, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_PrintTheRoster       = Button(root, image=imgLock, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_ManageData           = Button(root, image=imgComputerGear, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_SupportBattleScribe  = Button(root, image=imgShieldCheck, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_DiceTool             = Button(root, image=imgGear, bg="#112637", fg="White", padx=11, pady=10, command=lambda: button_clear(root))
+button_Updates              = Button(root, image=imgSound, bg="#112637", fg="White", padx=10, pady=10, command=lambda: button_clear(root))
+button_ReportABug           = Button(root, image=imgMessage, bg="#112637", fg="White", padx=10, pady=10, command=lambda: button_clear(root))
 
 
-
+# Button has hover message
+# Button has colorado change on hover, BUT...
 # Cannot get hover color change, and message popup at the same time. Not sure why
 myTip1 = Hovertip(button_NoFlyZone, 'This is a \n multiline tip')
 myTip2 = Hovertip(button_CreateNewRoster, 'Create a new roster')
@@ -112,25 +103,19 @@ changeOnHover(button_ReportABug, "Dark Red", "#112637")
 # Put buttons on the screen
 # sticky="NSEW"  Lets us stretch items if the window gets bigger in real time.
 button_NoFlyZone.grid(          row=0, column=0, sticky="NEW")
-button_CreateNewRoster.grid(    row=0, column=1, sticky="NE")
-button_OpenExistingRoster.grid( row=0, column=2, sticky="NE")
-button_OpenRosterToView.grid(   row=0, column=3, sticky="NE")
-button_SaveTheRoster.grid(      row=0, column=4, sticky="NE")
-button_SaveTheRosterAs.grid(    row=0, column=5, sticky="NE")
-button_ViewTheRoster.grid(      row=0, column=6, sticky="NE")
-button_ShareTheRoster.grid(     row=0, column=7, sticky="NE")
-button_PrintTheRoster.grid(     row=0, column=8, sticky="NE")
-button_ManageData.grid(         row=0, column=9, sticky="NE")
-button_SupportBattleScribe.grid(row=0, column=10, sticky="NE")
-button_DiceTool.grid(           row=0, column=11, sticky="NE")
-button_Updates.grid(            row=0, column=12, sticky="NE")
+button_CreateNewRoster.grid(    row=0, column=1, sticky="NEW")
+button_OpenExistingRoster.grid( row=0, column=2, sticky="NEW")
+button_OpenRosterToView.grid(   row=0, column=3, sticky="NEW")
+button_SaveTheRoster.grid(      row=0, column=4, sticky="NEW")
+button_SaveTheRosterAs.grid(    row=0, column=5, sticky="NEW")
+button_ViewTheRoster.grid(      row=0, column=6, sticky="NEW")
+button_ShareTheRoster.grid(     row=0, column=7, sticky="NEW")
+button_PrintTheRoster.grid(     row=0, column=8, sticky="NEW")
+button_ManageData.grid(         row=0, column=9, sticky="NEW")
+button_SupportBattleScribe.grid(row=0, column=10, sticky="NEW")
+button_DiceTool.grid(           row=0, column=11, sticky="NEW")
+button_Updates.grid(            row=0, column=12, sticky="NEW")
 button_ReportABug.grid(         row=0, column=13, sticky="NEW")
-
-
-#paddinglabel = StringVar()
-#label = Label(root, textvariable=paddinglabel, relief=RAISED)
-#paddinglabel.set("NoFlyZone.com")
-#label.grid(row=0, column=13, sticky=NE)
 
 # Spacing line to show separator after buttons.
 seperator = ttk.Separator(root, orient=HORIZONTAL)
@@ -139,3 +124,34 @@ seperator.place(x=0, y=50, height=10, width=10000)
 # Actually run the root Loop
 # Create an event loop. Keeps root in an everlasting loop, so it keeps functioning until user quits.
 root.mainloop()
+
+'''
+     0      1      2      3      4      5      6      7      8      9       10      11      12      13              
+0  btn1 | btn2 | btn3 | btn4 | btn5 | btn6 | btn7 | btn8 | btn9 | btn10 | btn11 | btn12 | btn13 | btn14
+   ----------------------------------------------------------------------------------------------------
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+'''
