@@ -15,6 +15,15 @@ from tkinter.filedialog import askopenfile
 from idlelib.tooltip import Hovertip
 
 
+# Simple function just as placeholder currently.
+def button_clear(root):
+    # Creates entry box just to have code in here. Not good for this function.
+    e = Entry(root, width=35, borderwidth=5)
+    e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+    # Clear the text from the box
+    e.delete(0, END)
+
+
 def changeOnHover(button, colorOnHover, colorOnLeave):
     # function to change the properties of a button on hover over it.
     # adjust the background of the widget
