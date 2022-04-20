@@ -118,8 +118,22 @@ button_Updates.grid(            row=0, column=12, sticky="NEW")
 button_ReportABug.grid(         row=0, column=13, sticky="NEW")
 
 # Spacing line to show separator after buttons.
-seperator = ttk.Separator(root, orient=HORIZONTAL)
-seperator.place(x=0, y=50, height=10, width=10000)
+# Using .place instead of grid, lets us put this separator exactly where we want based on pixels
+seperator1 = ttk.Separator(root, orient=HORIZONTAL)
+seperator1.place(x=0, y=50, height=10, width=10000)
+
+seperator2 = ttk.Separator(root, orient=HORIZONTAL).grid(row=2, columnspan=15, padx=10, pady=2, sticky=EW)
+
+dropButton1 = Button(root,  text="does this drop", width=50, height=10, command=lambda: button_clear(root))
+dropButton1.grid(row=1, column=0)
+
+# This is nearly the same as the top. Remove the rowspan
+# This just creates a button spacer. The button is still in the original location
+# This adds another full, separate, blank section below it.
+# If you just made the original space bigger, the button and others would just spread out.
+# Spacing line to show separator after buttons.
+canvas = tk.Canvas(root, width=600, height=250)
+canvas.grid(columnspan=3)  # Split canvas into 3 invisible columns/rows
 
 # Actually run the root Loop
 # Create an event loop. Keeps root in an everlasting loop, so it keeps functioning until user quits.
