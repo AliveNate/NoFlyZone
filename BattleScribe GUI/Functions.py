@@ -41,6 +41,21 @@ def resizeButtonImage(address):
     return finalimage
 
 
+def dropDownOneSection(root, buttonName, buttonX, labelX, yPlace):
+    # The expanded next level button
+    yPlace = yPlace + 41
+    # Grab text from original button name and add an X for the new button name
+    newButtonName = buttonName.cget("text") + "X"
+    newButtonName = Button(root, text="+", command=lambda: dropDownOneSection(root, newButtonName, buttonX, labelX, yPlace), relief=FLAT, background="gray")
+    newButtonName.place(x=buttonX, y=yPlace, height=40, width=20)
+    label1 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+    label1.place(x=labelX, y=yPlace, height=40, width=200)
+    # Change the original button that was clicked in the first place
+    buttonName = Button(root, text="-", command=lambda: dropDownOneSection(root, buttonName, 5, 25, 51), relief=FLAT, background="gray")
+    buttonName.place(x=5, y=51, height=40, width=20)
+
+
+
 '''
 # This is a convenient message box. Shows different options just keeping for future use if needed.
 from tkinter import *
