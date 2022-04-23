@@ -10,11 +10,15 @@
 # under the alias of ET
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import tostring
- 
+
 # Passing the path of the
 # xml document to enable the
 # parsing process
-tree = ET.parse('D:\\Programming\\PythonProjects\\Battlescribe Replacement\\NoFlyZone\\Data\\Unzipped_Data\\Aeldari - Craftworlds.cat')
+import os
+cwd = os.getcwd()
+targetDirectory = cwd + '\\Data\\Unzipped_Data\\Aeldari - Craftworlds.cat'
+#tree = ET.parse('D:\\Programming\\PythonProjects\\Battlescribe Replacement\\NoFlyZone\\Data\\Unzipped_Data\\Aeldari - Craftworlds.cat')
+tree = ET.parse(targetDirectory)
 #Element tree represents the while XML doc
 #Element represents a single node on the tree per https://docs.python.org/3/library/xml.etree.elementtree.html
 

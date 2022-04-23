@@ -16,12 +16,15 @@ from idlelib.tooltip import Hovertip
 # Local functions
 from Functions import *
 
+# Get the current working directory for further target sub addresses
+import os
+cwd = os.getcwd()
 
 root = tk.Tk()
 root.title("BattleScribe Roster Editor")
 root.geometry("680x600")
 # This form needs a png image. This image is in the same directory currently.
-root.iconphoto(False, tk.PhotoImage(file="Images\\battlescribeLogo.png"))
+root.iconphoto(False, tk.PhotoImage(file=cwd + "\\Images\\battlescribeLogo.png"))
 # For the hover text
 
 
@@ -30,20 +33,20 @@ root.rowconfigure(0, weight=2)
 root.columnconfigure(0, weight=1)
 
 # Grab images from a local directory (next to this .py file)
-imgArrow = resizeButtonImage("Images\\arrow.png")
-imgCloud = resizeButtonImage("Images\\cloud.png")
-imgComputer = resizeButtonImage("Images\\computer.png")
-imgComputerGear = resizeButtonImage("Images\\computerGear.png")
-imgDownload = resizeButtonImage("Images\\download.png")
-imgGear = resizeButtonImage("Images\\gear.png")
-imgKeyboard = resizeButtonImage("Images\\keyboard.png")
-imgLock = resizeButtonImage("Images\\lock.png")
-imgMessage = resizeButtonImage("Images\\message.png")
-imgMouse = resizeButtonImage("Images\\mouse.png")
-imgSave = resizeButtonImage("Images\\save.png")
-imgShieldCheck = resizeButtonImage("Images\\shieldCheck.png")
-imgUpload = resizeButtonImage("Images\\upload.png")
-imgSound = resizeButtonImage("Images\\sound.png")
+imgArrow = resizeButtonImage(cwd + "\\Images\\arrow.png")
+imgCloud = resizeButtonImage(cwd + "\\Images\\cloud.png")
+imgComputer = resizeButtonImage(cwd + "\\Images\\computer.png")
+imgComputerGear = resizeButtonImage(cwd + "\\Images\\computerGear.png")
+imgDownload = resizeButtonImage(cwd + "\\Images\\download.png")
+imgGear = resizeButtonImage(cwd + "\\Images\\gear.png")
+imgKeyboard = resizeButtonImage(cwd + "\\Images\\keyboard.png")
+imgLock = resizeButtonImage(cwd + "\\Images\\lock.png")
+imgMessage = resizeButtonImage(cwd + "\\Images\\message.png")
+imgMouse = resizeButtonImage(cwd + "\\Images\\mouse.png")
+imgSave = resizeButtonImage(cwd + "\\Images\\save.png")
+imgShieldCheck = resizeButtonImage(cwd + "\\Images\\shieldCheck.png")
+imgUpload = resizeButtonImage(cwd + "\\Images\\upload.png")
+imgSound = resizeButtonImage(cwd + "\\Images\\sound.png")
 
 
 # Use  lambda to pass a var/value to a button function (command=lambda: button_click(1)))
