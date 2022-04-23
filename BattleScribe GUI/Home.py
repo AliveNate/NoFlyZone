@@ -19,7 +19,7 @@ from Functions import *
 
 root = tk.Tk()
 root.title("BattleScribe Roster Editor")
-root.geometry("600x600")
+root.geometry("680x600")
 # This form needs a png image. This image is in the same directory currently.
 root.iconphoto(False, tk.PhotoImage(file="Images\\battlescribeLogo.png"))
 # For the hover text
@@ -117,15 +117,38 @@ button_DiceTool.grid(           row=0, column=11, sticky="NEW")
 button_Updates.grid(            row=0, column=12, sticky="NEW")
 button_ReportABug.grid(         row=0, column=13, sticky="NEW")
 
+# Top separator after the buttons
+leftBorder = ttk.Separator(root, orient=VERTICAL)
+leftBorder.place(x=0, height=1000, width=5)
+# Line just below the top buttons
+seperator1 = ttk.Separator(root, orient=HORIZONTAL)
+seperator1.place(x=5, y=50, height=100, width=10000)
+# ------------------------------------------------------------------------
+# 3 buttons/labels on the second section.
+# Press the + and it expands, - and it retracts
+# Command should be a function that expands or retracts
+# ----------- First  top +/- button label
+# Send y value so the function can add 41 for the dropdown
+dropButton1 = Button(root,  text="+", command=lambda: dropDownOneSection(root, dropButton1, 5, 25, 51), relief=FLAT, background="gray")
+dropButton1.place(x=5, y=51, height=40, width=20)
+label1 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+label1.place(x=25, y=51, height=40, width=200)
+# ---------- Second top +/- button label
+dropButton1_2 = Button(root,  text="+", command=lambda: dropDownOneSection(root, 230, 250, 51), relief=FLAT, background="gray")
+dropButton1_2.place(x=230, y=51, height=40, width=20)
+label1_2 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+label1_2.place(x=250, y=51, height=40, width=200)
+# ----------Third top +/- button label
+dropButton1_3 = Button(root,  text="+", command=lambda: dropDownOneSection(root, 455, 475, 51), relief=FLAT, background="gray")
+dropButton1_3.place(x=455, y=51, height=40, width=20)
+label1_3 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+label1_3.place(x=475, y=51, height=40, width=200)
+# -------------------------------------------------------------------------
 # Spacing line to show separator after buttons.
 # Using .place instead of grid, lets us put this separator exactly where we want based on pixels
-seperator1 = ttk.Separator(root, orient=HORIZONTAL)
-seperator1.place(x=0, y=50, height=10, width=10000)
+seperator2 = ttk.Separator(root, orient=HORIZONTAL)
+seperator2.place(x=1, y=200, height=1, width=10000)
 
-seperator2 = ttk.Separator(root, orient=HORIZONTAL).grid(row=2, columnspan=15, padx=10, pady=2, sticky=EW)
-
-dropButton1 = Button(root,  text="does this drop", width=50, height=10, command=lambda: button_clear(root))
-dropButton1.grid(row=1, column=0)
 
 # This is nearly the same as the top. Remove the rowspan
 # This just creates a button spacer. The button is still in the original location
@@ -133,7 +156,7 @@ dropButton1.grid(row=1, column=0)
 # If you just made the original space bigger, the button and others would just spread out.
 # Spacing line to show separator after buttons.
 canvas = tk.Canvas(root, width=600, height=250)
-canvas.grid(columnspan=3)  # Split canvas into 3 invisible columns/rows
+canvas.grid(columnspan=13)  # Split canvas into 3 invisible columns/rows
 
 # Actually run the root Loop
 # Create an event loop. Keeps root in an everlasting loop, so it keeps functioning until user quits.
