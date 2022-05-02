@@ -41,18 +41,46 @@ def resizeButtonImage(address):
     return finalimage
 
 
-def dropDownOneSection(root, buttonName, buttonX, labelX, yPlace):
+def dropDownOneSection(root, oldBtn, btnLstAry, position):
+    # Button lists = [arrayPosition, name, symbol, xbutton, xLabel, yPosition]
+    # Create a list with button attributes, and append to array
+    # Button list for this button was just appended to the array of lists
+    # Grab last list from the array and get the attributes
+    # Use these to help create the new button/label
+    oldBtnPos = btnLstAry[-1][0]
+    # Get the old
+    oldBtnName = btnLstAry[-1][1]
+    # Need to send in the button as an object to change the label here.
+    oldBtn["text"] = "-"
+    oldBtn["command"] = lambda: pullUpOneSection(root, oldBtn, btnLstAry, position+1)
+    oldBtnSym = btnLstAry[-1][2]
+    oldbtnX = btnLstAry[-1][3]
+    oldlblX = btnLstAry[-1][4]
+    oldYPlace = btnLstAry[-1][5]
+    # When a user clicks the + button, it drops down a new +button, label, and turns this button into a -
+
     # The expanded next level button
-    yPlace = yPlace + 41
-    # Grab text from original button name and add an X for the new button name
-    newButtonName = buttonName.cget("text") + "X"
-    newButtonName = Button(root, text="+", command=lambda: dropDownOneSection(root, newButtonName, buttonX, labelX, yPlace), relief=FLAT, background="gray")
-    newButtonName.place(x=buttonX, y=yPlace, height=40, width=20)
-    label1 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
-    label1.place(x=labelX, y=yPlace, height=40, width=200)
-    # Change the original button that was clicked in the first place
-    buttonName = Button(root, text="-", command=lambda: dropDownOneSection(root, buttonName, 5, 25, 51), relief=FLAT, background="gray")
-    buttonName.place(x=5, y=51, height=40, width=20)
+    newYPlace = oldYPlace + 41
+    # Grab text from original button name and add a position for the new button name
+    newBtnName = oldBtnName + str(oldBtnPos+1)
+    # Create list with the new buttons attributes.
+    newBtnLst = [(oldBtnPos + 1), newBtnName, "+", oldbtnX, oldlblX, newYPlace]
+    # Append the list to the original array of lists.
+    btnLstAry.append(newBtnLst)
+    # Create the new button, and these attributes have been added to the new list, and the list was appended to the array
+    newBtn = Button(root, text="+", command=lambda: dropDownOneSection(root, newBtn, btnLstAry, position), relief=FLAT, background="gray")
+    newBtn.place(x=oldbtnX, y=newYPlace, height=40, width=20)
+    newlabel1 = Label(root, text=newBtnName, borderwidth=1, relief="solid")
+    newlabel1.place(x=oldlblX, y=newYPlace, height=40, width=200)
+
+
+def pullUpOneSection(root, oldBtnName, btnLstAry, position):
+    i = 0
+    pos = 0
+    oldBtnName["text"] = "xxx"
+    oldBtnName.destroy()
+
+
 
 
 

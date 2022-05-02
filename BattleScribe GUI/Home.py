@@ -13,6 +13,8 @@ from PIL import Image, ImageTk
 from tkinter.filedialog import askopenfile
 # Hover tip balloon messages
 from idlelib.tooltip import Hovertip
+from numpy import *
+import numpy as np
 # Local functions
 from Functions import *
 
@@ -131,21 +133,32 @@ seperator1.place(x=5, y=50, height=100, width=10000)
 # Press the + and it expands, - and it retracts
 # Command should be a function that expands or retracts
 # ----------- First  top +/- button label
-# Send y value so the function can add 41 for the dropdown
-dropButton1 = Button(root,  text="+", command=lambda: dropDownOneSection(root, dropButton1, 5, 25, 51), relief=FLAT, background="gray")
-dropButton1.place(x=5, y=51, height=40, width=20)
-label1 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
-label1.place(x=25, y=51, height=40, width=200)
+# List is created for a button. Then each list is placed in an array.
+# 00 = first row, first button,   01 = first row, second button
+# Button lists = [arrayPosition, name, symbol, xbutton, xLabel, yPosition, buttonArrayPos]
+btnLst00 = [0, "dropBtn00", "+", 5, 25, 51]
+btnLst01 = [0, "dropBtn01", "+", 230, 250, 51]
+btnLst02 = [0, "dropBtn02", "+", 455, 475, 51]
+# Array of lists. Send and append each time a new button/label is created.
+# If button in position3 is minimized, then we can also minimize each position after that also
+btnLstAry0 = [btnLst00]
+btnLstAry1 = [btnLst01]
+btnLstAry2 = [btnLst02]
+# -----------------------------
+dropBtn00 = Button(root,  text="+", command=lambda: dropDownOneSection(root, dropBtn00, btnLstAry0, 0), relief=FLAT, background="gray")
+dropBtn00.place(x=5, y=51, height=40, width=20)
+lbl00 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+lbl00.place(x=25, y=51, height=40, width=200)
 # ---------- Second top +/- button label
-dropButton1_2 = Button(root,  text="+", command=lambda: dropDownOneSection(root, 230, 250, 51), relief=FLAT, background="gray")
-dropButton1_2.place(x=230, y=51, height=40, width=20)
-label1_2 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
-label1_2.place(x=250, y=51, height=40, width=200)
+dropBtn01 = Button(root,  text="+", command=lambda: dropDownOneSection(root, dropBtn01, btnLstAry1, 0), relief=FLAT, background="gray")
+dropBtn01.place(x=230, y=51, height=40, width=20)
+lbl01 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+lbl01.place(x=250, y=51, height=40, width=200)
 # ----------Third top +/- button label
-dropButton1_3 = Button(root,  text="+", command=lambda: dropDownOneSection(root, 455, 475, 51), relief=FLAT, background="gray")
-dropButton1_3.place(x=455, y=51, height=40, width=20)
-label1_3 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
-label1_3.place(x=475, y=51, height=40, width=200)
+dropBtn02 = Button(root,  text="+", command=lambda: dropDownOneSection(root, dropBtn02, btnLstAry2, 0), relief=FLAT, background="gray")
+dropBtn02.place(x=455, y=51, height=40, width=20)
+lbl02 = Label(root, text="Here is the first input", borderwidth=1, relief="solid")
+lbl02.place(x=475, y=51, height=40, width=200)
 # -------------------------------------------------------------------------
 # Spacing line to show separator after buttons.
 # Using .place instead of grid, lets us put this separator exactly where we want based on pixels
