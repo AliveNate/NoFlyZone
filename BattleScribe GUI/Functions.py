@@ -60,7 +60,6 @@ def dropDownOneSection(root, oldBtn, btnLstAry, position):
     # When a user clicks the + button, it drops down a new +button, label, and turns this button into a -
 
     # The expanded next level button
-<<<<<<< HEAD
     newYPlace = oldYPlace + 41
     # Grab text from original button name and add a position for the new button name
     newBtnName = oldBtnName + str(oldBtnPos+1)
@@ -79,7 +78,7 @@ def pullUpOneSection(root, oldBtnName, btnLstAry, position):
     i = 0
     pos = 0
     oldBtnName["text"] = "xxx"
-    # destroy
+    # destroyx
 
 
 
