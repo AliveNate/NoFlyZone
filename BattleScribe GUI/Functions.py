@@ -78,7 +78,7 @@ def pullUpOneSection(root, oldBtnName, btnLstAry, position):
     i = 0
     pos = 0
     oldBtnName["text"] = "xxx"
-    oldBtnName.destroy()
+    # destroy
 
 
 
